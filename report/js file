@@ -1,0 +1,59 @@
+// Copyright (c) 2024, Abcd and contributors
+// For license information, please see license.txt
+
+frappe.query_reports["Stock detail script report"] = {
+	"filters": [
+		{
+            'fieldname': 'select',
+            'label': __('Select'),
+            'fieldtype': 'Select',
+			"options":[
+				'Import',
+				'Export']  
+        },
+		{
+            'fieldname': 'date',
+            'label': __('Date'),
+            'fieldtype': 'Date',
+            
+        },
+		
+        {
+            'fieldname': 'from_ware_house',
+            'label': __('From Ware House'),
+            'fieldtype': 'Link',
+            'options':'ware'
+        },
+
+		{
+            'fieldname': 'to_ware_house',
+            'label': __('To Ware House'),
+            'fieldtype': 'Link',
+            'options':'ware'
+        },
+        {
+            'fieldname': 'item_name',
+            'label': __('Item name'),
+            'fieldtype': 'Link',
+			'options':'Item details'
+            
+        },
+		{
+            'fieldname': 'item_price',
+            'label': __('Item price'),
+            'fieldtype': 'Currency',
+        },
+		{
+            'fieldname': 'total_quantity',
+            'label': __('Total quantity'),
+            'fieldtype': 'Int',
+        },
+		{
+            'fieldname': 'total_amount',
+            'label': __('Total amount'),
+            'fieldtype': 'Currency',
+        },
+
+
+	]
+};
