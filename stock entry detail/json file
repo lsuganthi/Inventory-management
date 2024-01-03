@@ -1,0 +1,135 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-02 10:14:02.192630",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "transaction_type",
+  "date",
+  "time",
+  "from_ware_house",
+  "to_ware_house",
+  "column_break_z7pt",
+  "item_name",
+  "item_color",
+  "item_price",
+  "total_quantity",
+  "total_amount",
+  "payment_method",
+  "check_all_are_correct",
+  "import1",
+  "export"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time"
+  },
+  {
+   "fieldname": "from_ware_house",
+   "fieldtype": "Link",
+   "label": "From Ware House",
+   "options": "ware"
+  },
+  {
+   "fieldname": "to_ware_house",
+   "fieldtype": "Link",
+   "label": "To Ware House",
+   "options": "ware"
+  },
+  {
+   "fieldname": "column_break_z7pt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Link",
+   "label": "Item name",
+   "options": "Item Detail"
+  },
+  {
+   "fetch_from": "item_name.color",
+   "fetch_if_empty": 1,
+   "fieldname": "item_color",
+   "fieldtype": "Color",
+   "label": "Item color"
+  },
+  {
+   "fetch_from": "item_name.price",
+   "fieldname": "item_price",
+   "fieldtype": "Currency",
+   "label": "Item price"
+  },
+  {
+   "fieldname": "total_quantity",
+   "fieldtype": "Int",
+   "label": "Total quantity"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total amount"
+  },
+  {
+   "fieldname": "payment_method",
+   "fieldtype": "Select",
+   "label": "Payment method",
+   "options": "\n1.cash\n2.Bank Transfer"
+  },
+  {
+   "default": "0",
+   "fieldname": "check_all_are_correct",
+   "fieldtype": "Check",
+   "label": "Check all are correct"
+  },
+  {
+   "depends_on": "eval:doc.transaction_type==\"Export\"",
+   "fieldname": "export",
+   "fieldtype": "Button",
+   "label": "Export"
+  },
+  {
+   "depends_on": "eval:doc.transaction_type==\"Import\"",
+   "fieldname": "import1",
+   "fieldtype": "Button",
+   "label": "Import"
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "label": "Transaction Type",
+   "options": "\nImport\nExport"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-01-03 13:34:25.024223",
+ "modified_by": "Administrator",
+ "module": "my_inventory",
+ "name": "Stock Entry Details",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
