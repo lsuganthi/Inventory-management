@@ -1,0 +1,34 @@
+import datetime
+import frappe
+
+def execute(filters=None):
+    columns, data = [], []
+    columns = get_columns(filters)
+    data = get_data(filters)
+    return columns, data
+
+def get_columns(filters):
+   column = [
+   ('Select') + ':Select:90',
+   ('Date') + ':Date:90',
+   ('From Ware House') + ':Link:150',
+   ('To Ware House') + ':Link:150',
+   ('Item name') + ': Link:150',
+   ('Item Price') + ': Currency:110',
+   ('Total quantity') + ':Int:90',
+   ('Total amount') + ': Currency:120',
+   
+   ]
+   return column
+
+def get_data(filters):
+	data = []
+	record = frappe.db.get_all("Stock Detail",['*'])
+	for r in record:
+		item_name= frappe.db.get_value('Item Detail',{'name':r.Item name},['item_neme'])
+		frappe.errprint(item_name)
+		row = [r.select,r.date,r.from_ware_house,r.to_ware_house,r.to_ware_house,r.item_name,r.item_price,r.total_quantity,r.total_amount]
+
+			
+		data.append(row)
+	return data
