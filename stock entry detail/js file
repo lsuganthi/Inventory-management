@@ -1,0 +1,28 @@
+// Copyright (c) 2024, Abcd and contributors
+// For license information, please see license.txt
+
+frappe.ui.form.on("Stock Entry Details", {
+	refresh(frm) {
+        frm.disable_save();
+
+	},
+
+   
+
+    total_quantity:function(frm){
+        frm.doc.total_amount=frm.doc.item_price*frm.doc.total_quantity
+        frm.refresh_field("total_amount")
+    },
+
+    import1(frm){
+        frm.call("import1").then(r => {
+
+        });
+    },
+
+    export(frm){
+        frm.call("export").then(r => {
+
+        });
+    },
+});
